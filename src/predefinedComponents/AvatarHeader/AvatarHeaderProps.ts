@@ -23,17 +23,15 @@ export interface AvatarHeaderSharedProps extends IconProps, SharedPredefinedProp
 }
 
 export interface AvatarHeaderScrollViewProps
-  extends AvatarHeaderSharedProps,
-    StickyHeaderScrollViewProps {}
+  extends AvatarHeaderSharedProps, StickyHeaderScrollViewProps {}
 
 export interface AvatarHeaderFlatListProps<ItemT>
-  extends AvatarHeaderSharedProps,
-    StickyHeaderFlatListProps<ItemT> {}
+  extends AvatarHeaderSharedProps, StickyHeaderFlatListProps<ItemT> {}
 
 export interface AvatarHeaderSectionListProps<ItemT, SectionT>
-  extends AvatarHeaderSharedProps,
-    StickyHeaderSectionListProps<ItemT, SectionT> {}
+  extends AvatarHeaderSharedProps, StickyHeaderSectionListProps<ItemT, SectionT> {}
 
 export interface AvatarHeaderFlashListProps<ItemT>
-  extends Omit<AvatarHeaderSharedProps, 'contentContainerStyle'>,
+  extends
+    Omit<AvatarHeaderSharedProps, 'contentContainerStyle'>,
     StickyHeaderFlashListProps<ItemT> {}

@@ -75,7 +75,7 @@ export const TabbedHeaderPager = React.forwardRef<ScrollView, TabbedHeaderPagerP
         onHorizontalPagerScroll(e);
         pagerProps?.onScroll?.(e);
       },
-      [onHorizontalPagerScroll, pagerProps?.onScroll]
+      [onHorizontalPagerScroll, pagerProps]
     );
 
     return (

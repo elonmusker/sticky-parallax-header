@@ -22,20 +22,19 @@ export interface PagerMethods {
   goToPage: (pageNumber: number) => void;
 }
 
-export interface PagerProps
-  extends Omit<
-    FlatListProps<ReactChild | ReactFragment | ReactPortal>,
-    | 'data'
-    | 'horizontal'
-    | 'keyExtractor'
-    | 'onMomentumScrollBegin'
-    | 'onMomentumScrollEnd'
-    | 'onScroll'
-    | 'onScrollBeginDrag'
-    | 'onScrollEndDrag'
-    | 'pagingEnabled'
-    | 'renderItem'
-  > {
+export interface PagerProps extends Omit<
+  FlatListProps<ReactChild | ReactFragment | ReactPortal>,
+  | 'data'
+  | 'horizontal'
+  | 'keyExtractor'
+  | 'onMomentumScrollBegin'
+  | 'onMomentumScrollEnd'
+  | 'onScroll'
+  | 'onScrollBeginDrag'
+  | 'onScrollEndDrag'
+  | 'pagingEnabled'
+  | 'renderItem'
+> {
   /** worklet function */
   onMomentumScrollBegin?: (e: NativeScrollEvent) => void;
   /** worklet function */
@@ -62,8 +61,7 @@ export interface TabbedHeaderSharedProps extends SharedPredefinedProps, Partial<
 }
 
 export interface TabbedHeaderPagerProps
-  extends TabbedHeaderSharedProps,
-    StickyHeaderScrollViewProps {
+  extends TabbedHeaderSharedProps, StickyHeaderScrollViewProps {
   disableScrollToPosition?: boolean;
   initialPage?: number;
   onChangeTab?: (prevPage: number, newPage: number) => void;
@@ -73,9 +71,9 @@ export interface TabbedHeaderPagerProps
 }
 
 export interface TabbedHeaderListProps<ItemT, SectionT>
-  extends TabbedHeaderSharedProps,
-    StickyHeaderSectionListProps<ItemT, SectionT> {}
+  extends TabbedHeaderSharedProps, StickyHeaderSectionListProps<ItemT, SectionT> {}
 
 export interface TabbedHeaderFlashListProps<ItemT>
-  extends Omit<TabbedHeaderSharedProps, 'contentContainerStyle'>,
+  extends
+    Omit<TabbedHeaderSharedProps, 'contentContainerStyle'>,
     StickyHeaderFlashListProps<ItemT> {}

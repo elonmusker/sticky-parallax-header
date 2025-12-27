@@ -42,7 +42,8 @@ export interface StickyHeaderSnapProps {
   snapToEdge?: boolean;
 }
 export interface StickyHeaderScrollViewProps
-  extends StickyHeaderSharedProps,
+  extends
+    StickyHeaderSharedProps,
     Omit<
       AnimatedProps<ScrollViewProps>,
       | 'contentContainerStyle'
@@ -55,7 +56,8 @@ export interface StickyHeaderScrollViewProps
     > {}
 
 export interface StickyHeaderFlatListProps<ItemT>
-  extends StickyHeaderSharedProps,
+  extends
+    StickyHeaderSharedProps,
     Omit<
       AnimatedProps<FlatListProps<ItemT>>,
       | 'contentContainerStyle'
@@ -71,7 +73,8 @@ export interface StickyHeaderFlatListProps<ItemT>
 }
 
 export interface StickyHeaderSectionListProps<ItemT, SectionT>
-  extends StickyHeaderSharedProps,
+  extends
+    StickyHeaderSharedProps,
     Omit<
       AnimatedProps<SectionListProps<ItemT, SectionT>>,
       | 'contentContainerStyle'
@@ -87,7 +90,8 @@ export interface StickyHeaderSectionListProps<ItemT, SectionT>
 }
 
 export interface StickyHeaderFlashListProps<ItemT>
-  extends Omit<StickyHeaderSharedProps, 'contentContainerStyle' | 'style'>,
+  extends
+    Omit<StickyHeaderSharedProps, 'contentContainerStyle' | 'style'>,
     Omit<
       AnimatedProps<FlashListProps<ItemT>>,
       | 'contentContainerStyle'

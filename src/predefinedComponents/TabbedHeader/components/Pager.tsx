@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { FlatListProps, LayoutChangeEvent, ListRenderItemInfo } from 'react-native';
 import { Dimensions, FlatList, I18nManager, Platform, StyleSheet, View } from 'react-native';
-import Animated, { type AnimatedStyle, type SharedValue, 
+import Animated, {
   cancelAnimation,
   runOnJS,
   runOnUI,

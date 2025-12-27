@@ -3,7 +3,7 @@ import type { FlashList, ViewToken } from '@shopify/flash-list';
 import * as React from 'react';
 import type { NativeScrollEvent } from 'react-native';
 import { Platform } from 'react-native';
-import { runOnJS, useSharedValue,  } from 'react-native-reanimated';
+import { runOnJS, useSharedValue } from 'react-native-reanimated';
 
 import { HeaderWrapper } from '../../common/components/HeaderWrapper';
 import { usePredefinedFlashListHeader } from '../../common/hooks/usePredefinedFlashListHeader';
@@ -39,10 +39,13 @@ function useRenderFlashListHeader<T extends FlashList<any>>(
     titleTestID,
   } = props;
   const horizontalScrollValue = useSharedValue(0);
-  const onHorizontalPagerScroll = React.useCallback((e: NativeScrollEvent) => {
-    'worklet';
-    horizontalScrollValue.value = e.contentOffset.x;
-  }, [horizontalScrollValue]);
+  const onHorizontalPagerScroll = React.useCallback(
+    (e: NativeScrollEvent) => {
+      'worklet';
+      horizontalScrollValue.value = e.contentOffset.x;
+    },
+    [horizontalScrollValue]
+  );
 
   const renderHeader = React.useCallback(() => {
     return (
@@ -159,18 +162,17 @@ export function useTabbedFlashListHeader<ItemT, T extends FlashList<ItemT> = Fla
     },
     [ignoreViewabilityItemsChangedEvent, scrollViewRef, stickyHeaderIndices]
   );
-  const onMomentumScrollEndInternal = (
-    (e: NativeScrollEvent) => {
+  const onMomentumScrollEndInternal =
+    ((e: NativeScrollEvent) => {
       ignoreViewabilityItemsChangedEvent.value = false;
       onMomentumScrollEnd?.(e);
     },
-    [onMomentumScrollEnd]
-  );
+    [onMomentumScrollEnd]);
   const debouncedIgnoreViewabilityItemsChangedCallback = debounce(() => {
     ignoreViewabilityItemsChangedEvent.value = false;
   }, 100);
-  const onScrollInternal = (
-    (e: NativeScrollEvent) => {
+  const onScrollInternal =
+    ((e: NativeScrollEvent) => {
       if (Platform.OS === 'web') {
         // On web there is no onMomentumScrollEnd
         runOnJS(debouncedIgnoreViewabilityItemsChangedCallback)();
@@ -178,8 +180,7 @@ export function useTabbedFlashListHeader<ItemT, T extends FlashList<ItemT> = Fla
 
       onScroll?.(e);
     },
-    [onScroll]
-  );
+    [onScroll]);
 
   const renderTabs = useRenderTabs({
     ...props,

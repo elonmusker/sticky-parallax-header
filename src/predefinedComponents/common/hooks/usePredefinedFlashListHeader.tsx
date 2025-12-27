@@ -1,4 +1,4 @@
-import { FlashList } from '@shopify/flash-list';
+import type { FlashList } from '@shopify/flash-list';
 import { useMemo } from 'react';
 import { StyleSheet, useWindowDimensions } from 'react-native';
 

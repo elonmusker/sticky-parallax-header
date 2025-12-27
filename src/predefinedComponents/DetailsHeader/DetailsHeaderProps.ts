@@ -30,17 +30,15 @@ export interface DetailsHeaderSharedProps extends IconProps, SharedPredefinedPro
 }
 
 export interface DetailsHeaderScrollViewProps
-  extends DetailsHeaderSharedProps,
-    StickyHeaderScrollViewProps {}
+  extends DetailsHeaderSharedProps, StickyHeaderScrollViewProps {}
 
 export interface DetailsHeaderFlatListProps<ItemT>
-  extends DetailsHeaderSharedProps,
-    StickyHeaderFlatListProps<ItemT> {}
+  extends DetailsHeaderSharedProps, StickyHeaderFlatListProps<ItemT> {}
 
 export interface DetailsHeaderSectionListProps<ItemT, SectionT>
-  extends DetailsHeaderSharedProps,
-    StickyHeaderSectionListProps<ItemT, SectionT> {}
+  extends DetailsHeaderSharedProps, StickyHeaderSectionListProps<ItemT, SectionT> {}
 
 export interface DetailsHeaderFlashListProps<ItemT>
-  extends Omit<DetailsHeaderSharedProps, 'contentContainerStyle'>,
+  extends
+    Omit<DetailsHeaderSharedProps, 'contentContainerStyle'>,
     StickyHeaderFlashListProps<ItemT> {}

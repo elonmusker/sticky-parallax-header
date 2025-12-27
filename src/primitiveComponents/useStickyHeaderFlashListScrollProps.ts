@@ -1,4 +1,4 @@
-import { FlashList } from '@shopify/flash-list';
+import type { FlashList } from '@shopify/flash-list';
 import { useCallback, useEffect, useRef } from 'react';
 import type { NativeScrollEvent } from 'react-native';
 import { Platform } from 'react-native';
@@ -7,7 +7,6 @@ import {
   useAnimatedReaction,
   useAnimatedRef,
   useSharedValue,
-  
 } from 'react-native-reanimated';
 
 import { useResponsiveSize } from '../hooks/useResponsiveSize';
@@ -152,7 +151,7 @@ export function useStickyHeaderFlashListScrollProps<T extends FlashList<any> = F
       scrollValue.value = e.contentOffset.y;
       onScroll?.(e);
     },
-    [onScroll]
+    [onScroll, scrollValue]
   );
 
   return {
