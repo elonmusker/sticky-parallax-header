@@ -9,7 +9,7 @@ interface HeaderBackgroundProps {
   backgroundColor?: AnimatedColorProp;
   hasBorderRadius?: boolean;
   height: number;
-  scrollValue: Animated.SharedValue<number>;
+  scrollValue: SharedValue<number>;
 }
 
 export const HeaderBackground: React.FC<HeaderBackgroundProps> = ({

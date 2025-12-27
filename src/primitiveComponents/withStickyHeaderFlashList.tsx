@@ -2,7 +2,7 @@
 import type { FlashListProps } from '@shopify/flash-list';
 import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
-import Animated from 'react-native-reanimated';
+import Animated, { type AnimatedProps } from 'react-native-reanimated';
 
 import type { StickyHeaderFlashListProps } from './StickyHeaderProps';
 import { useStickyHeaderProps } from './useStickyHeaderProps';
@@ -16,7 +16,7 @@ export function withStickyHeaderFlashList<T extends React.ComponentClass<FlashLi
 
   return React.forwardRef<
     T,
-    StickyHeaderFlashListProps<unknown> & Animated.AnimateProps<React.PropsWithRef<T>>
+    StickyHeaderFlashListProps<unknown> & AnimatedProps<React.PropsWithRef<T>>
   >((props, ref) => {
     const {
       containerStyle,
@@ -96,7 +96,7 @@ export function withStickyHeaderFlashList<T extends React.ComponentClass<FlashLi
       </View>
     );
   }) as unknown as React.FC<
-    StickyHeaderFlashListProps<unknown> & Animated.AnimateProps<React.ComponentPropsWithRef<T>>
+    StickyHeaderFlashListProps<unknown> & AnimatedProps<React.ComponentPropsWithRef<T>>
   >;
 }
 

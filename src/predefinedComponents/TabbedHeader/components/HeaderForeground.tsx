@@ -11,9 +11,9 @@ import { scrollPosition } from '../../common/utils/scrollPosition';
 interface ForegroundProps {
   foregroundImage?: ImageSourcePropType;
   height: number;
-  scrollValue: Animated.SharedValue<number>;
+  scrollValue: SharedValue<number>;
   title?: string;
-  titleStyle?: StyleProp<Animated.AnimateStyle<TextStyle>>;
+  titleStyle?: StyleProp<AnimatedStyle<TextStyle>>;
   titleTestID?: string;
 }
 

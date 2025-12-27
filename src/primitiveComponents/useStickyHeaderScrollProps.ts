@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import type { FlatList, NativeScrollEvent, ScrollView, SectionList } from 'react-native';
 import { Platform } from 'react-native';
 import {
@@ -7,7 +7,6 @@ import {
   useAnimatedReaction,
   useAnimatedRef,
   useSharedValue,
-  useWorkletCallback,
 } from 'react-native-reanimated';
 
 import { useResponsiveSize } from '../hooks/useResponsiveSize';
@@ -69,8 +68,9 @@ export function useStickyHeaderScrollProps<T extends ScrollComponent>(
 
   const scrollHeight = Math.max(parallaxHeight, headerHeight * 2);
 
-  const onSnapToEdge = useWorkletCallback(
+  const onSnapToEdge = useCallback(
     (e: NativeScrollEvent) => {
+      'worklet';
       const scrollToHeight = snapStopThreshold ?? scrollHeight;
       const snapToEdgeThreshold = snapStartThreshold ?? scrollHeight / 2;
 
@@ -106,19 +106,21 @@ export function useStickyHeaderScrollProps<T extends ScrollComponent>(
         }
       }
     },
-    [snapStartThreshold, snapStopThreshold, scrollHeight, scrollValue]
+    [snapStartThreshold, snapStopThreshold, scrollHeight, scrollValue, snapToEdge, scrollViewRef]
   );
 
-  const onMomentumScrollEndInternal = useWorkletCallback(
+  const onMomentumScrollEndInternal = useCallback(
     (e: NativeScrollEvent) => {
+      'worklet';
       onMomentumScrollEnd?.(e);
       onSnapToEdge(e);
     },
     [onMomentumScrollEnd, onSnapToEdge]
   );
 
-  const onScrollEndDragInternal = useWorkletCallback(
+  const onScrollEndDragInternal = useCallback(
     (e: NativeScrollEvent) => {
+      'worklet';
       onScrollEndDrag?.(e);
       if (Platform.OS === 'android' || Math.abs(e.velocity?.y ?? 0) > 0) {
         return;
@@ -129,12 +131,13 @@ export function useStickyHeaderScrollProps<T extends ScrollComponent>(
     [onScrollEndDrag, onSnapToEdge]
   );
 
-  const onScrollInternal = useWorkletCallback(
+  const onScrollInternal = useCallback(
     (e: NativeScrollEvent) => {
+      'worklet';
       scrollValue.value = e.contentOffset.y;
       onScroll?.(e);
     },
-    [onScroll]
+    [onScroll, scrollValue]
   );
 
   return {

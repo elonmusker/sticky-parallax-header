@@ -1,14 +1,19 @@
-import type { AnimatedColorProp, ColorProp } from '../SharedProps';
+import type { ColorValue } from 'react-native';
+
+import type { AnimatedColorProp } from '../SharedProps';
 
 export function parseAnimatedColorProp(
   animatedColorProp?: AnimatedColorProp
-): ColorProp | undefined {
+): ColorValue | undefined {
   'worklet';
 
-  return typeof animatedColorProp === 'undefined' ||
+  const result =
+    typeof animatedColorProp === 'undefined' ||
     typeof animatedColorProp === 'string' ||
     typeof animatedColorProp === 'number' ||
     typeof animatedColorProp === 'symbol'
-    ? animatedColorProp
-    : animatedColorProp?.value;
+      ? animatedColorProp
+      : animatedColorProp?.value;
+
+  return result as ColorValue | undefined;
 }

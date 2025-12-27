@@ -9,7 +9,7 @@ import type {
   TextStyle,
   ViewStyle,
 } from 'react-native';
-import type Animated from 'react-native-reanimated';
+import type { AnimatedStyle } from 'react-native-reanimated';
 
 import type {
   StickyHeaderFlashListProps,
@@ -22,20 +22,19 @@ export interface PagerMethods {
   goToPage: (pageNumber: number) => void;
 }
 
-export interface PagerProps
-  extends Omit<
-    FlatListProps<ReactChild | ReactFragment | ReactPortal>,
-    | 'data'
-    | 'horizontal'
-    | 'keyExtractor'
-    | 'onMomentumScrollBegin'
-    | 'onMomentumScrollEnd'
-    | 'onScroll'
-    | 'onScrollBeginDrag'
-    | 'onScrollEndDrag'
-    | 'pagingEnabled'
-    | 'renderItem'
-  > {
+export interface PagerProps extends Omit<
+  FlatListProps<ReactChild | ReactFragment | ReactPortal>,
+  | 'data'
+  | 'horizontal'
+  | 'keyExtractor'
+  | 'onMomentumScrollBegin'
+  | 'onMomentumScrollEnd'
+  | 'onScroll'
+  | 'onScrollBeginDrag'
+  | 'onScrollEndDrag'
+  | 'pagingEnabled'
+  | 'renderItem'
+> {
   /** worklet function */
   onMomentumScrollBegin?: (e: NativeScrollEvent) => void;
   /** worklet function */
@@ -53,29 +52,28 @@ export interface TabbedHeaderSharedProps extends SharedPredefinedProps, Partial<
   foregroundImage?: ImageSourcePropType;
   hasBorderRadius?: boolean;
   logo?: ImageSourcePropType;
-  logoContainerStyle?: StyleProp<Animated.AnimateStyle<ViewStyle>>;
+  logoContainerStyle?: StyleProp<AnimatedStyle<ViewStyle>>;
   logoResizeMode?: ImageResizeMode;
-  logoStyle?: StyleProp<Animated.AnimateStyle<ImageStyle>>;
+  logoStyle?: StyleProp<AnimatedStyle<ImageStyle>>;
   title?: string;
-  titleStyle?: StyleProp<Animated.AnimateStyle<TextStyle>>;
+  titleStyle?: StyleProp<AnimatedStyle<TextStyle>>;
   titleTestID?: string;
 }
 
 export interface TabbedHeaderPagerProps
-  extends TabbedHeaderSharedProps,
-    StickyHeaderScrollViewProps {
+  extends TabbedHeaderSharedProps, StickyHeaderScrollViewProps {
   disableScrollToPosition?: boolean;
   initialPage?: number;
   onChangeTab?: (prevPage: number, newPage: number) => void;
-  pageContainerStyle?: StyleProp<Animated.AnimateStyle<ViewStyle>>;
+  pageContainerStyle?: StyleProp<AnimatedStyle<ViewStyle>>;
   pagerProps?: PagerProps & RefAttributes<PagerMethods>;
   rememberTabScrollPosition?: boolean;
 }
 
 export interface TabbedHeaderListProps<ItemT, SectionT>
-  extends TabbedHeaderSharedProps,
-    StickyHeaderSectionListProps<ItemT, SectionT> {}
+  extends TabbedHeaderSharedProps, StickyHeaderSectionListProps<ItemT, SectionT> {}
 
 export interface TabbedHeaderFlashListProps<ItemT>
-  extends Omit<TabbedHeaderSharedProps, 'contentContainerStyle'>,
+  extends
+    Omit<TabbedHeaderSharedProps, 'contentContainerStyle'>,
     StickyHeaderFlashListProps<ItemT> {}

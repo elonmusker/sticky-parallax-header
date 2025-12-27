@@ -10,7 +10,7 @@ import type {
   StyleProp,
   ViewStyle,
 } from 'react-native';
-import type { AnimateProps } from 'react-native-reanimated';
+import type { AnimatedProps } from 'react-native-reanimated';
 
 export interface StickyHeaderSharedProps {
   containerStyle?: StyleProp<ViewStyle>;
@@ -42,9 +42,10 @@ export interface StickyHeaderSnapProps {
   snapToEdge?: boolean;
 }
 export interface StickyHeaderScrollViewProps
-  extends StickyHeaderSharedProps,
+  extends
+    StickyHeaderSharedProps,
     Omit<
-      AnimateProps<ScrollViewProps>,
+      AnimatedProps<ScrollViewProps>,
       | 'contentContainerStyle'
       | 'onMomentumScrollBegin'
       | 'onMomentumScrollEnd'
@@ -55,9 +56,10 @@ export interface StickyHeaderScrollViewProps
     > {}
 
 export interface StickyHeaderFlatListProps<ItemT>
-  extends StickyHeaderSharedProps,
+  extends
+    StickyHeaderSharedProps,
     Omit<
-      AnimateProps<FlatListProps<ItemT>>,
+      AnimatedProps<FlatListProps<ItemT>>,
       | 'contentContainerStyle'
       | 'data'
       | 'onMomentumScrollBegin'
@@ -71,9 +73,10 @@ export interface StickyHeaderFlatListProps<ItemT>
 }
 
 export interface StickyHeaderSectionListProps<ItemT, SectionT>
-  extends StickyHeaderSharedProps,
+  extends
+    StickyHeaderSharedProps,
     Omit<
-      AnimateProps<SectionListProps<ItemT, SectionT>>,
+      AnimatedProps<SectionListProps<ItemT, SectionT>>,
       | 'contentContainerStyle'
       | 'onMomentumScrollBegin'
       | 'onMomentumScrollEnd'
@@ -87,9 +90,10 @@ export interface StickyHeaderSectionListProps<ItemT, SectionT>
 }
 
 export interface StickyHeaderFlashListProps<ItemT>
-  extends Omit<StickyHeaderSharedProps, 'contentContainerStyle' | 'style'>,
+  extends
+    Omit<StickyHeaderSharedProps, 'contentContainerStyle' | 'style'>,
     Omit<
-      AnimateProps<FlashListProps<ItemT>>,
+      AnimatedProps<FlashListProps<ItemT>>,
       | 'contentContainerStyle'
       | 'data'
       | 'renderItem'

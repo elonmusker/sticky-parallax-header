@@ -18,9 +18,9 @@ interface HeaderBarProps {
   backgroundColor?: AnimatedColorProp;
   enableSafeAreaTopInset?: boolean;
   logo: ImageSourcePropType;
-  logoContainerStyle?: StyleProp<Animated.AnimateStyle<ViewStyle>>;
+  logoContainerStyle?: StyleProp<AnimatedStyle<ViewStyle>>;
   logoResizeMode?: ImageResizeMode;
-  logoStyle?: StyleProp<Animated.AnimateStyle<ImageStyle>>;
+  logoStyle?: StyleProp<AnimatedStyle<ImageStyle>>;
 }
 
 export const HeaderBar: React.FC<HeaderBarProps> = ({

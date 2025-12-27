@@ -7,7 +7,6 @@ import {
   useAnimatedReaction,
   useAnimatedRef,
   useSharedValue,
-  useWorkletCallback,
 } from 'react-native-reanimated';
 
 import { useResponsiveSize } from '../hooks/useResponsiveSize';
@@ -75,8 +74,9 @@ export function useStickyHeaderFlashListScrollProps<T extends FlashList<any> = F
     scrollViewRef.current?.scrollToOffset({ animated: true, offset: scrollHeight });
   }, [scrollHeight, scrollViewRef]);
 
-  const onSnapToEdge = useWorkletCallback(
+  const onSnapToEdge = useCallback(
     (e: NativeScrollEvent) => {
+      'worklet';
       const scrollToHeight = snapStopThreshold ?? scrollHeight;
       const snapToEdgeThreshold = snapStartThreshold ?? scrollHeight / 2;
 
@@ -123,16 +123,18 @@ export function useStickyHeaderFlashListScrollProps<T extends FlashList<any> = F
     ]
   );
 
-  const onMomentumScrollEndInternal = useWorkletCallback(
+  const onMomentumScrollEndInternal = useCallback(
     (e: NativeScrollEvent) => {
+      'worklet';
       onMomentumScrollEnd?.(e);
       onSnapToEdge(e);
     },
     [onMomentumScrollEnd, onSnapToEdge]
   );
 
-  const onScrollEndDragInternal = useWorkletCallback(
+  const onScrollEndDragInternal = useCallback(
     (e: NativeScrollEvent) => {
+      'worklet';
       onScrollEndDrag?.(e);
       if (Platform.OS === 'android' || Math.abs(e.velocity?.y ?? 0) > 0) {
         return;
@@ -143,12 +145,13 @@ export function useStickyHeaderFlashListScrollProps<T extends FlashList<any> = F
     [onScrollEndDrag, onSnapToEdge]
   );
 
-  const onScrollInternal = useWorkletCallback(
+  const onScrollInternal = useCallback(
     (e: NativeScrollEvent) => {
+      'worklet';
       scrollValue.value = e.contentOffset.y;
       onScroll?.(e);
     },
-    [onScroll]
+    [onScroll, scrollValue]
   );
 
   return {

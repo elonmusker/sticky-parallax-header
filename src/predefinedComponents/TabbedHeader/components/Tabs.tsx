@@ -11,7 +11,7 @@ import { TabItem } from './TabItem';
 
 export interface TabsProps extends TabsConfig {
   activeTab: number;
-  horizontalScrollValue: Animated.SharedValue<number>;
+  horizontalScrollValue: SharedValue<number>;
   onTabPressed: (index: number) => void;
 }
 

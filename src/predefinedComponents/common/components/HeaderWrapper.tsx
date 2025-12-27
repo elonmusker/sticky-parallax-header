@@ -17,7 +17,7 @@ interface HeaderWrapperProps {
   hasBorderRadius?: boolean;
   parallaxHeight: number;
   scrollHeight: number;
-  scrollValue: Animated.SharedValue<number>;
+  scrollValue: SharedValue<number>;
   tabsContainerBackgroundColor?: AnimatedColorProp;
 }
 

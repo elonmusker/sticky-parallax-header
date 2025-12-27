@@ -10,19 +10,19 @@ import { scrollPosition } from '../../common/utils/scrollPosition';
 interface ForegroundProps {
   contentIcon?: ImageSourcePropType;
   contentIconNumber?: number;
-  contentIconNumberStyle?: StyleProp<Animated.AnimateStyle<TextStyle>>;
+  contentIconNumberStyle?: StyleProp<AnimatedStyle<TextStyle>>;
   contentIconNumberTestID?: string;
   height: number;
   image?: ImageSourcePropType;
-  scrollValue: Animated.SharedValue<number>;
+  scrollValue: SharedValue<number>;
   subtitle?: string;
-  subtitleStyle?: StyleProp<Animated.AnimateStyle<TextStyle>>;
+  subtitleStyle?: StyleProp<AnimatedStyle<TextStyle>>;
   subtitleTestID?: string;
   tag?: string;
-  tagStyle?: StyleProp<Animated.AnimateStyle<TextStyle>>;
+  tagStyle?: StyleProp<AnimatedStyle<TextStyle>>;
   tagTestID?: string;
   title?: string;
-  titleStyle?: StyleProp<Animated.AnimateStyle<TextStyle>>;
+  titleStyle?: StyleProp<AnimatedStyle<TextStyle>>;
   titleTestID?: string;
 }
 

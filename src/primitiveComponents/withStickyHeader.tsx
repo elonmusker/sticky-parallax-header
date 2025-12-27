@@ -2,7 +2,7 @@
 import * as React from 'react';
 import type { LayoutChangeEvent } from 'react-native';
 import { StyleSheet, View } from 'react-native';
-import Animated from 'react-native-reanimated';
+import Animated, { type AnimatedProps } from 'react-native-reanimated';
 
 import type { StickyHeaderSharedProps } from './StickyHeaderProps';
 import { useStickyHeaderProps } from './useStickyHeaderProps';
@@ -27,7 +27,7 @@ export function withStickyHeader<T extends React.ComponentClass<any>>(component:
 
   return React.forwardRef<
     T,
-    StickyHeaderSharedProps & Animated.AnimateProps<React.ComponentPropsWithRef<T>>
+    StickyHeaderSharedProps & AnimatedProps<React.ComponentPropsWithRef<T>>
   >((props, ref) => {
     const {
       containerStyle,
@@ -99,7 +99,7 @@ export function withStickyHeader<T extends React.ComponentClass<any>>(component:
       </View>
     );
   }) as unknown as React.FC<
-    StickyHeaderSharedProps & Animated.AnimateProps<React.ComponentPropsWithRef<T>>
+    StickyHeaderSharedProps & AnimatedProps<React.ComponentPropsWithRef<T>>
   >;
 }
 

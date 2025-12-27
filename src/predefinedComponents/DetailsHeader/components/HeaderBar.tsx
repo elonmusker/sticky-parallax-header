@@ -15,7 +15,7 @@ interface HeaderBarProps extends IconProps {
   enableSafeAreaTopInset?: boolean;
   headerTitleContainerAnimatedStyle: { opacity: number };
   title?: string;
-  titleStyle?: StyleProp<Animated.AnimateStyle<TextStyle>>;
+  titleStyle?: StyleProp<AnimatedStyle<TextStyle>>;
   titleTestID?: string;
 }
 
