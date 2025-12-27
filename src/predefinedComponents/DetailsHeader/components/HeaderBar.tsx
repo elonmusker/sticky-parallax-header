@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { StyleProp, TextStyle } from 'react-native';
 import { Pressable, StyleSheet } from 'react-native';
-import Animated, { type AnimatedStyle, type SharedValue,  useAnimatedStyle } from 'react-native-reanimated';
+import Animated, { useAnimatedStyle } from 'react-native-reanimated';
 import type { Edge } from 'react-native-safe-area-context';
 import { SafeAreaView } from 'react-native-safe-area-context';
 

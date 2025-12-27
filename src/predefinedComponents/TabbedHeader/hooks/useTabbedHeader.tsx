@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { NativeScrollEvent, ScrollView, SectionList, ViewToken } from 'react-native';
 import { Platform } from 'react-native';
-import { runOnJS, useSharedValue, useWorkletCallback } from 'react-native-reanimated';
+import { runOnJS, useSharedValue,  } from 'react-native-reanimated';
 
 import type { ScrollComponent } from '../../common/SharedProps';
 import { HeaderWrapper } from '../../common/components/HeaderWrapper';
@@ -35,9 +35,10 @@ function useRenderHeader<T extends ScrollComponent>(props: TabbedHeaderPagerProp
     titleTestID,
   } = props;
   const horizontalScrollValue = useSharedValue(0);
-  const onHorizontalPagerScroll = useWorkletCallback((e: NativeScrollEvent) => {
+  const onHorizontalPagerScroll = React.useCallback((e: NativeScrollEvent) => {
+    'worklet';
     horizontalScrollValue.value = e.contentOffset.x;
-  }, []);
+  }, [horizontalScrollValue]);
 
   const renderHeader = React.useCallback(() => {
     return (
@@ -113,7 +114,7 @@ export function useTabbedHeaderPager(props: TabbedHeaderPagerProps) {
 
       return prev;
     });
-  }, []);
+  }, [horizontalScrollValue]);
 
   const renderTabs = useRenderTabs({
     ...props,
@@ -156,7 +157,7 @@ export function useTabbedHeaderList<
     scrollValue,
     scrollViewRef,
   } = useRenderHeader<T>(props);
-  const onMomentumScrollEndInternal = useWorkletCallback(
+  const onMomentumScrollEndInternal = (
     (e: NativeScrollEvent) => {
       ignoreViewabilityItemsChangedEvent.value = false;
       onMomentumScrollEnd?.(e);
@@ -166,7 +167,7 @@ export function useTabbedHeaderList<
   const debouncedIgnoreViewabilityItemsChangedCallback = debounce(() => {
     ignoreViewabilityItemsChangedEvent.value = false;
   }, 100);
-  const onScrollInternal = useWorkletCallback(
+  const onScrollInternal = (
     (e: NativeScrollEvent) => {
       if (Platform.OS === 'web') {
         // On web there is no onMomentumScrollEnd
@@ -192,7 +193,7 @@ export function useTabbedHeaderList<
     });
     setActiveSection(sectionIndex);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [horizontalScrollValue]);
 
   const onViewableItemsChanged = React.useCallback(
     ({ viewableItems }: { viewableItems: ViewToken[]; changed: ViewToken[] }) => {

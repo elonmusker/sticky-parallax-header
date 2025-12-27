@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { LayoutChangeEvent } from 'react-native';
 import { I18nManager, Platform, ScrollView, StyleSheet, useWindowDimensions } from 'react-native';
-import Animated, { type AnimatedStyle, type SharedValue,  interpolate, useAnimatedStyle } from 'react-native-reanimated';
+import Animated, { interpolate, useAnimatedStyle } from 'react-native-reanimated';
 
 import { commonStyles } from '../../../constants';
 import type { Tab, TabsConfig } from '../../common/SharedProps';

@@ -1,4 +1,4 @@
-import type { FlashList } from '@shopify/flash-list';
+import { FlashList } from '@shopify/flash-list';
 import * as React from 'react';
 import { Extrapolate, interpolate, useAnimatedStyle } from 'react-native-reanimated';
 
