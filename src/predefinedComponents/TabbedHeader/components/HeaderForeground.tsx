@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { ImageSourcePropType, StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { StyleSheet, View, useWindowDimensions } from 'react-native';
-import Animated, { Extrapolate, interpolate, useAnimatedStyle } from 'react-native-reanimated';
+import Animated, { type AnimatedStyle, type SharedValue,  Extrapolate, interpolate, useAnimatedStyle } from 'react-native-reanimated';
 
 import { colors, commonStyles, constants } from '../../../constants';
 import { useResponsiveSize } from '../../../hooks/useResponsiveSize';
@@ -11,9 +11,9 @@ import { scrollPosition } from '../../common/utils/scrollPosition';
 interface ForegroundProps {
   foregroundImage?: ImageSourcePropType;
   height: number;
-  scrollValue: Animated.SharedValue<number>;
+  scrollValue: SharedValue<number>;
   title?: string;
-  titleStyle?: StyleProp<Animated.AnimateStyle<TextStyle>>;
+  titleStyle?: StyleProp<AnimatedStyle<TextStyle>>;
   titleTestID?: string;
 }
 

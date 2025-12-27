@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { ImageSourcePropType, StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { Pressable, StyleSheet, View } from 'react-native';
-import Animated, { Extrapolate, interpolate, useAnimatedStyle } from 'react-native-reanimated';
+import Animated, { type AnimatedStyle, type SharedValue,  Extrapolate, interpolate, useAnimatedStyle } from 'react-native-reanimated';
 import type { Edge } from 'react-native-safe-area-context';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -24,9 +24,9 @@ interface HeaderProps extends IconProps {
   enableSafeAreaTopInset?: boolean;
   height: number;
   image?: ImageSourcePropType;
-  scrollValue: Animated.SharedValue<number>;
+  scrollValue: SharedValue<number>;
   title?: string;
-  titleStyle?: StyleProp<Animated.AnimateStyle<TextStyle>>;
+  titleStyle?: StyleProp<AnimatedStyle<TextStyle>>;
   titleTestID?: string;
 }
 

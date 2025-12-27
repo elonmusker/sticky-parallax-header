@@ -6,7 +6,7 @@ import type {
   StyleProp,
   ViewStyle,
 } from 'react-native';
-import Animated, { useAnimatedStyle } from 'react-native-reanimated';
+import Animated, { type AnimatedStyle, type SharedValue,  useAnimatedStyle } from 'react-native-reanimated';
 import type { Edge } from 'react-native-safe-area-context';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -18,9 +18,9 @@ interface HeaderBarProps {
   backgroundColor?: AnimatedColorProp;
   enableSafeAreaTopInset?: boolean;
   logo: ImageSourcePropType;
-  logoContainerStyle?: StyleProp<Animated.AnimateStyle<ViewStyle>>;
+  logoContainerStyle?: StyleProp<AnimatedStyle<ViewStyle>>;
   logoResizeMode?: ImageResizeMode;
-  logoStyle?: StyleProp<Animated.AnimateStyle<ImageStyle>>;
+  logoStyle?: StyleProp<AnimatedStyle<ImageStyle>>;
 }
 
 export const HeaderBar: React.FC<HeaderBarProps> = ({

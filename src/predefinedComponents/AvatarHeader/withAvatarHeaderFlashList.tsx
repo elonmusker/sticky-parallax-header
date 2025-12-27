@@ -1,7 +1,7 @@
 import type { FlashList, FlashListProps } from '@shopify/flash-list';
 import * as React from 'react';
 import { View } from 'react-native';
-import Animated, { useAnimatedStyle } from 'react-native-reanimated';
+import Animated, { type AnimatedStyle, type SharedValue,  useAnimatedStyle } from 'react-native-reanimated';
 
 import { commonStyles } from '../../constants';
 import type { StickyHeaderFlashListProps } from '../../primitiveComponents/StickyHeaderProps';

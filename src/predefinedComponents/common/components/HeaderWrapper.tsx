@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { ImageSourcePropType } from 'react-native';
 import { StyleSheet, View, useWindowDimensions } from 'react-native';
-import Animated, { useAnimatedStyle } from 'react-native-reanimated';
+import Animated, { type AnimatedStyle, type SharedValue,  useAnimatedStyle } from 'react-native-reanimated';
 
 import { colors } from '../../../constants';
 import type { AnimatedColorProp } from '../SharedProps';
@@ -17,7 +17,7 @@ interface HeaderWrapperProps {
   hasBorderRadius?: boolean;
   parallaxHeight: number;
   scrollHeight: number;
-  scrollValue: Animated.SharedValue<number>;
+  scrollValue: SharedValue<number>;
   tabsContainerBackgroundColor?: AnimatedColorProp;
 }
 

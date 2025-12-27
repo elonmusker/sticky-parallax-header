@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { StyleProp, TextStyle } from 'react-native';
 import { Pressable, StyleSheet } from 'react-native';
-import Animated, { useAnimatedStyle } from 'react-native-reanimated';
+import Animated, { type AnimatedStyle, type SharedValue,  useAnimatedStyle } from 'react-native-reanimated';
 import type { Edge } from 'react-native-safe-area-context';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -15,7 +15,7 @@ interface HeaderBarProps extends IconProps {
   enableSafeAreaTopInset?: boolean;
   headerTitleContainerAnimatedStyle: { opacity: number };
   title?: string;
-  titleStyle?: StyleProp<Animated.AnimateStyle<TextStyle>>;
+  titleStyle?: StyleProp<AnimatedStyle<TextStyle>>;
   titleTestID?: string;
 }
 

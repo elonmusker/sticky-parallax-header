@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { ImageSourcePropType, StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { Image, Platform, StyleSheet, View, useWindowDimensions } from 'react-native';
-import Animated, { Extrapolate, interpolate, useAnimatedStyle } from 'react-native-reanimated';
+import Animated, { type AnimatedStyle, type SharedValue,  Extrapolate, interpolate, useAnimatedStyle } from 'react-native-reanimated';
 
 import { colors, commonStyles, constants } from '../../../constants';
 import { useRTLStyles } from '../../common/hooks/useRTLStyles';
@@ -10,19 +10,19 @@ import { scrollPosition } from '../../common/utils/scrollPosition';
 interface ForegroundProps {
   contentIcon?: ImageSourcePropType;
   contentIconNumber?: number;
-  contentIconNumberStyle?: StyleProp<Animated.AnimateStyle<TextStyle>>;
+  contentIconNumberStyle?: StyleProp<AnimatedStyle<TextStyle>>;
   contentIconNumberTestID?: string;
   height: number;
   image?: ImageSourcePropType;
-  scrollValue: Animated.SharedValue<number>;
+  scrollValue: SharedValue<number>;
   subtitle?: string;
-  subtitleStyle?: StyleProp<Animated.AnimateStyle<TextStyle>>;
+  subtitleStyle?: StyleProp<AnimatedStyle<TextStyle>>;
   subtitleTestID?: string;
   tag?: string;
-  tagStyle?: StyleProp<Animated.AnimateStyle<TextStyle>>;
+  tagStyle?: StyleProp<AnimatedStyle<TextStyle>>;
   tagTestID?: string;
   title?: string;
-  titleStyle?: StyleProp<Animated.AnimateStyle<TextStyle>>;
+  titleStyle?: StyleProp<AnimatedStyle<TextStyle>>;
   titleTestID?: string;
 }
 

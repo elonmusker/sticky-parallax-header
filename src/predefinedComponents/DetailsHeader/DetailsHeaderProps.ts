@@ -1,5 +1,5 @@
 import type { ImageSourcePropType, StyleProp, TextStyle } from 'react-native';
-import type Animated from 'react-native-reanimated';
+import type { AnimatedStyle } from 'react-native-reanimated';
 
 import type {
   StickyHeaderFlashListProps,
@@ -12,20 +12,20 @@ import type { AnimatedColorProp, IconProps, SharedPredefinedProps } from '../com
 export interface DetailsHeaderSharedProps extends IconProps, SharedPredefinedProps {
   contentIcon?: ImageSourcePropType;
   contentIconNumber?: number;
-  contentIconNumberStyle?: StyleProp<Animated.AnimateStyle<TextStyle>>;
+  contentIconNumberStyle?: StyleProp<AnimatedStyle<TextStyle>>;
   contentIconNumberTestID?: string;
   enableSafeAreaTopInset?: boolean;
   hasBorderRadius?: boolean;
   image?: ImageSourcePropType;
   tabsContainerBackgroundColor?: AnimatedColorProp;
   subtitle?: string;
-  subtitleStyle?: StyleProp<Animated.AnimateStyle<TextStyle>>;
+  subtitleStyle?: StyleProp<AnimatedStyle<TextStyle>>;
   subtitleTestID?: string;
   tag?: string;
-  tagStyle?: StyleProp<Animated.AnimateStyle<TextStyle>>;
+  tagStyle?: StyleProp<AnimatedStyle<TextStyle>>;
   tagTestID?: string;
   title?: string;
-  titleStyle?: StyleProp<Animated.AnimateStyle<TextStyle>>;
+  titleStyle?: StyleProp<AnimatedStyle<TextStyle>>;
   titleTestID?: string;
 }
 
